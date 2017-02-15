@@ -1,4 +1,10 @@
-﻿[<EntryPoint>]
+﻿open UI.Window
+open System
+open System.Windows.Controls
+open System.Windows
+
+[<STAThread>]
+[<EntryPoint>]
 let main argv = 
-    printfn "%A" argv
-    0 // return an integer exit code
+    let window = Window( Visibility = Visibility.Visible )
+    System.Windows.Application( MainWindow = window ).Run()
