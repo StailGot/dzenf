@@ -11,7 +11,7 @@
   </Controls:MetroWindow.RightWindowCommands>
 
   <Grid>
-    <DataGrid x:Name="dataGrid" Margin="100,10,10,10"/>
+    <DataGrid x:Name="ctrlDataGrid" Margin="100,10,10,10"/>
     <Button x:Name="ctrlButton" Content="Button" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top" Width="75"/>
   </Grid>
   

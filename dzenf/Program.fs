@@ -13,15 +13,22 @@ let main argv =
 
     app.MainWindow <- window
     //let window = Window( Visibility = Visibility.Visible )
-    let data = [1..1000] |> Seq.map (fun e -> {Name = Convert.ToString e; Count = e}) |> Collections.ObjectModel.ObservableCollection
-    window.dataGrid.ItemsSource <- data
+    let data = {1..1000000} |> Seq.map (fun e -> {Name = Convert.ToString e; Count = e}) |> Collections.ObjectModel.ObservableCollection
+
+    window.ctrlDataGrid.ItemsSource <- data
+
     
-    async{ Seq.initInfinite (fun e -> 
-           printfn "asd"
-           System.Threading.Thread.Sleep 300;
-           window.dataGrid.Dispatcher.Invoke( fun () -> data.Add {Name = Convert.ToString e; Count = data.Count }; 
-                                                        window.dataGrid.SelectedIndex <- data.Count - 1
-                                                        window.dataGrid.ScrollIntoView ( window.dataGrid.SelectedItem )
-                                                        )) |> Seq.iter ignore
-          } |> Async.Start
+    let async_add_data () =
+      async{ Seq.initInfinite (fun e -> 
+             printfn "%A" DateTime.Now
+             let dataGrid = window.ctrlDataGrid
+             System.Threading.Thread.Sleep 300;
+             dataGrid.Dispatcher.Invoke(
+              fun () -> data.Add {Name = Convert.ToString data.Count; Count = data.Count }; )) |> Seq.iter ignore
+            } |> Async.Start
+
+    //window.ctrlSettings.Click.Add ( fun e -> MessageBox.Show("132") |> ignore )
+    ignore >> async_add_data |> window.ctrlSettings.Click.Add
+    ignore >> async_add_data |> window.ctrlButton.Click.Add
+
     app.Run()
