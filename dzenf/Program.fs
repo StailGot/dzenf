@@ -13,16 +13,11 @@ let main argv =
     let app = UI.Application()
     let window = Window( Visibility = Visibility.Visible )
 
-    
-
     app.MainWindow <- window
-    //let window = Window( Visibility = Visibility.Visible )
     let data = {1..1000000} |> Seq.map (fun e -> {Name = Convert.ToString e; Count = e}) |> Collections.ObjectModel.ObservableCollection
 
     window.ctrlDataGrid.ItemsSource <- data
-    //window.ctrlListBox.ItemsSource <- ThemeManager.Accents
     window.ctrlListBox.ItemsSource <- ThemeManager.Accents |> Seq.map ( fun v -> v.Name )
-    //window.ctrlListBox2.ItemsSource <- ThemeManager.AppThemes
     window.ctrlListBox2.ItemsSource <- ThemeManager.AppThemes |> Seq.map ( fun v -> v.Name )
     window.ctrlListBox.SelectedIndex <- 0
     window.ctrlListBox2.SelectedIndex <- 0
