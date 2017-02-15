@@ -7,11 +7,14 @@
   <Controls:MetroWindow.RightWindowCommands>
     <Controls:WindowCommands>
       <Button x:Name="ctrlSettings" Content="settings"/>
+      <ComboBox x:Name="ctrlListBox"/>
+      <ComboBox x:Name="ctrlListBox2"/>
+
     </Controls:WindowCommands>
   </Controls:MetroWindow.RightWindowCommands>
 
   <Grid>
-    <DataGrid x:Name="ctrlDataGrid" Margin="100,10,10,10"/>
+    <DataGrid x:Name="ctrlDataGrid" Margin="97,9,30,20"/>
     <Button x:Name="ctrlButton" Content="Button" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top" Width="75"/>
   </Grid>
   
