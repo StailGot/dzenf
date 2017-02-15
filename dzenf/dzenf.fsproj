@@ -40,6 +40,52 @@
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <Tailcalls>false</Tailcalls>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>3</WarningLevel>
+    <DocumentationFile>bin\$(Configuration)\$(AssemblyName).XML</DocumentationFile>
+    <Prefer32Bit>true</Prefer32Bit>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <Tailcalls>true</Tailcalls>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <WarningLevel>3</WarningLevel>
+    <DocumentationFile>bin\$(Configuration)\$(AssemblyName).XML</DocumentationFile>
+    <Prefer32Bit>true</Prefer32Bit>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <Tailcalls>false</Tailcalls>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>3</WarningLevel>
+    <DocumentationFile>bin\$(Configuration)\$(AssemblyName).XML</DocumentationFile>
+    <Prefer32Bit>true</Prefer32Bit>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <Tailcalls>true</Tailcalls>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <WarningLevel>3</WarningLevel>
+    <DocumentationFile>bin\$(Configuration)\$(AssemblyName).XML</DocumentationFile>
+    <Prefer32Bit>true</Prefer32Bit>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '11.0'">
       <PropertyGroup Condition="Exists('$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.0\Framework\v4.0\Microsoft.FSharp.Targets')">
@@ -60,11 +106,38 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="mscorlib" />
+    <Reference Include="FsCheck">
+      <HintPath>..\..\..\..\..\..\..\Users\alexander\documents\visual studio 2017\Projects\dzenf\packages\FsCheck.2.7.1\lib\net45\FsCheck.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharp.Control.AsyncSeq">
+      <HintPath>..\..\..\..\..\..\..\Users\alexander\documents\visual studio 2017\Projects\dzenf\packages\FSharp.Control.AsyncSeq.1.13\lib\net40\FSharp.Control.AsyncSeq.dll</HintPath>
+    </Reference>
     <Reference Include="FSharp.Core">
-      <Name>FSharp.Core</Name>
-      <AssemblyName>FSharp.Core.dll</AssemblyName>
-      <HintPath>$(MSBuildProgramFiles32)\Reference Assemblies\Microsoft\FSharp\.NETFramework\v4.0\$(TargetFSharpCoreVersion)\FSharp.Core.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Users\alexander\documents\visual studio 2017\Projects\dzenf\packages\FSharp.Core.4.1.0\lib\net40\FSharp.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharpx.Async">
+      <HintPath>..\..\..\..\..\..\..\Users\alexander\documents\visual studio 2017\Projects\dzenf\packages\FSharpx.Async.1.13.0\lib\net45\FSharpx.Async.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharpx.Collections">
+      <HintPath>..\..\..\..\..\..\..\Users\alexander\documents\visual studio 2017\Projects\dzenf\packages\FSharpx.Collections.1.15.2\lib\net40\FSharpx.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="FSharpx.Extras">
+      <HintPath>..\..\..\..\..\..\..\Users\alexander\documents\visual studio 2017\Projects\dzenf\packages\FSharpx.Extras.2.2.1\lib\net45\FSharpx.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="FsXaml.Wpf">
+      <HintPath>..\..\..\..\..\..\..\Users\alexander\documents\visual studio 2017\Projects\dzenf\packages\FsXaml.Wpf.3.1.2\lib\net45\FsXaml.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="FsXaml.Wpf.TypeProvider">
+      <HintPath>..\..\..\..\..\..\..\Users\alexander\documents\visual studio 2017\Projects\dzenf\packages\FsXaml.Wpf.3.1.2\lib\net45\FsXaml.Wpf.TypeProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="SharpSvn">
+      <HintPath>..\..\..\..\..\..\..\Users\alexander\documents\visual studio 2017\Projects\dzenf\packages\SharpSvn.1.9-x64.1.9005.3934.166\lib\net40\SharpSvn.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpSvn.UI">
+      <HintPath>..\..\..\..\..\..\..\Users\alexander\documents\visual studio 2017\Projects\dzenf\packages\SharpSvn.1.9-x64.1.9005.3934.166\lib\net40\SharpSvn.UI.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -72,6 +145,9 @@
     <Reference Include="System.ValueTuple">
       <HintPath>..\..\..\..\..\..\..\Users\alexander\documents\visual studio 2017\Projects\dzenf\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
