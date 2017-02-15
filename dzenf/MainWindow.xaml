@@ -1,10 +1,18 @@
-﻿<Window
+﻿<Controls:MetroWindow
    xmlns = "http://schemas.microsoft.com/winfx/2006/xaml/presentation"
    xmlns:x = "http://schemas.microsoft.com/winfx/2006/xaml"
    xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
    Title = "MainWindow" Height = "350" Width = "600">
+
+  <Controls:MetroWindow.RightWindowCommands>
+    <Controls:WindowCommands>
+      <Button x:Name="ctrlSettings" Content="settings"/>
+    </Controls:WindowCommands>
+  </Controls:MetroWindow.RightWindowCommands>
+
   <Grid>
-    <Button Content="Button" UseLayoutRounding="True" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="102" Height="40" HorizontalContentAlignment="Center" Style="{DynamicResource ButtonBlue}"/>
-    <DataGrid x:Name="dataGrid" Margin="125,10,10,10"/>
+    <DataGrid x:Name="dataGrid" Margin="100,10,10,10"/>
+    <Button x:Name="ctrlButton" Content="Button" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top" Width="75"/>
   </Grid>
-</Window>
+  
+</Controls:MetroWindow>

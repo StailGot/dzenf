@@ -107,7 +107,6 @@
     <Content Include="packages.config" />
     <Resource Include="MainWindow.xaml" />
     <Resource Include="App.xaml" />
-    <Resource Include="MoonUICore.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FsCheck">
