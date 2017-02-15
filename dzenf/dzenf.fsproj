@@ -103,10 +103,11 @@
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Window.fs" />
     <Compile Include="Program.fs" />
-    <None Include="App.config" />
+    <Resource Include="App.config" />
     <Content Include="packages.config" />
     <Resource Include="MainWindow.xaml" />
-    <Resource Include="app.xaml" />
+    <Resource Include="App.xaml" />
+    <Resource Include="MoonUICore.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FsCheck">
@@ -133,6 +134,9 @@
     <Reference Include="FsXaml.Wpf.TypeProvider">
       <HintPath>..\..\..\..\..\..\..\Users\alexander\documents\visual studio 2017\Projects\dzenf\packages\FsXaml.Wpf.3.1.2\lib\net45\FsXaml.Wpf.TypeProvider.dll</HintPath>
     </Reference>
+    <Reference Include="MahApps.Metro">
+      <HintPath>..\packages\MahApps.Metro.1.4.3\lib\net45\MahApps.Metro.dll</HintPath>
+    </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -147,6 +151,9 @@
     <Reference Include="System.Numerics" />
     <Reference Include="System.ValueTuple">
       <HintPath>..\..\..\..\..\..\..\Users\alexander\documents\visual studio 2017\Projects\dzenf\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>..\packages\MahApps.Metro.1.4.3\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />

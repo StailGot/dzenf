@@ -8,7 +8,11 @@ type DataItem = { Name:string; Count:int }
 [<STAThread>]
 [<EntryPoint>]
 let main argv =
+    let app = UI.Application()
     let window = Window( Visibility = Visibility.Visible )
+
+    app.MainWindow <- window
+    //let window = Window( Visibility = Visibility.Visible )
     let data = [1..1000] |> Seq.map (fun e -> {Name = Convert.ToString e; Count = e}) |> Collections.ObjectModel.ObservableCollection
     window.dataGrid.ItemsSource <- data
     
@@ -20,4 +24,4 @@ let main argv =
                                                         window.dataGrid.ScrollIntoView ( window.dataGrid.SelectedItem )
                                                         )) |> Seq.iter ignore
           } |> Async.Start
-    UI.Application( MainWindow = window ).Run()
+    app.Run()
