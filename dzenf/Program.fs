@@ -4,6 +4,7 @@ open System.Windows
 open UI.Window
 
 open MahApps.Metro
+open MahApps.Metro.Controls
 
 type DataItem = { Name:string; Count:int }
 
@@ -29,7 +30,8 @@ let main argv =
     ignore >> set_theme |> window.ctrlListBox.SelectionChanged.Add
     ignore >> set_theme |> window.ctrlListBox2.SelectionChanged.Add
     set_theme()
-    
+    //window.ShowMessageAsync("asd")
+
     let async_add_data () =
       async{ Seq.initInfinite (fun e -> 
              printfn "%A" DateTime.Now

@@ -9,10 +9,11 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>dzenf</RootNamespace>
     <AssemblyName>dzenf</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFSharpCoreVersion>4.4.1.0</TargetFSharpCoreVersion>
     <Name>dzenf</Name>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -102,6 +103,7 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Window.fs" />
+    <Compile Include="Tests.fs" />
     <Compile Include="Program.fs" />
     <Resource Include="App.config" />
     <Content Include="packages.config" />
@@ -109,29 +111,14 @@
     <Resource Include="App.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="FsCheck">
-      <HintPath>..\..\..\..\..\..\..\Users\alexander\documents\visual studio 2017\Projects\dzenf\packages\FsCheck.2.7.1\lib\net45\FsCheck.dll</HintPath>
-    </Reference>
-    <Reference Include="FSharp.Control.AsyncSeq">
-      <HintPath>..\..\..\..\..\..\..\Users\alexander\documents\visual studio 2017\Projects\dzenf\packages\FSharp.Control.AsyncSeq.2.0.10\lib\net45\FSharp.Control.AsyncSeq.dll</HintPath>
-    </Reference>
     <Reference Include="FSharp.Core">
-      <HintPath>..\..\..\..\..\..\..\Users\alexander\documents\visual studio 2017\Projects\dzenf\packages\FSharp.Core.4.1.0\lib\net40\FSharp.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="FSharpx.Async">
-      <HintPath>..\..\..\..\..\..\..\Users\alexander\documents\visual studio 2017\Projects\dzenf\packages\FSharpx.Async.1.13.0\lib\net45\FSharpx.Async.dll</HintPath>
-    </Reference>
-    <Reference Include="FSharpx.Collections">
-      <HintPath>..\..\..\..\..\..\..\Users\alexander\documents\visual studio 2017\Projects\dzenf\packages\FSharpx.Collections.1.15.2\lib\net40\FSharpx.Collections.dll</HintPath>
-    </Reference>
-    <Reference Include="FSharpx.Extras">
-      <HintPath>..\..\..\..\..\..\..\Users\alexander\documents\visual studio 2017\Projects\dzenf\packages\FSharpx.Extras.2.2.1\lib\net45\FSharpx.Extras.dll</HintPath>
+      <HintPath>..\packages\FSharp.Core.4.1.0\lib\net40\FSharp.Core.dll</HintPath>
     </Reference>
     <Reference Include="FsXaml.Wpf">
-      <HintPath>..\..\..\..\..\..\..\Users\alexander\documents\visual studio 2017\Projects\dzenf\packages\FsXaml.Wpf.3.1.2\lib\net45\FsXaml.Wpf.dll</HintPath>
+      <HintPath>..\packages\FsXaml.Wpf.3.1.3\lib\net45\FsXaml.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="FsXaml.Wpf.TypeProvider">
-      <HintPath>..\..\..\..\..\..\..\Users\alexander\documents\visual studio 2017\Projects\dzenf\packages\FsXaml.Wpf.3.1.2\lib\net45\FsXaml.Wpf.TypeProvider.dll</HintPath>
+      <HintPath>..\packages\FsXaml.Wpf.3.1.3\lib\net45\FsXaml.Wpf.TypeProvider.dll</HintPath>
     </Reference>
     <Reference Include="MahApps.Metro">
       <HintPath>..\packages\MahApps.Metro.1.4.3\lib\net45\MahApps.Metro.dll</HintPath>
@@ -149,7 +136,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.ValueTuple">
-      <HintPath>..\..\..\..\..\..\..\Users\alexander\documents\visual studio 2017\Projects\dzenf\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+      <HintPath>..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows.Interactivity">
       <HintPath>..\packages\MahApps.Metro.1.4.3\lib\net45\System.Windows.Interactivity.dll</HintPath>
