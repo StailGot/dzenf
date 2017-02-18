@@ -1,9 +1,9 @@
-﻿module Tests
+﻿namespace Tests.Lib.Base
 
-//open FsUnit
-////open FsCheck
+module ``Base Tests Cases`` =
+  open NUnit.Framework
+  open FsUnit
 
-//open NUnit.Framework
-
-//[<Test>]
-//let testExtract i = i should equal 42
+  [<Test>]
+  let ``Readable test cae name`` () = 
+    true |> should be (equal true)
