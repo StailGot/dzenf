@@ -109,6 +109,7 @@
     <Content Include="packages.config" />
     <Resource Include="MainWindow.xaml" />
     <Resource Include="App.xaml" />
+    <None Include=".runsettings" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Core">
