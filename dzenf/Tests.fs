@@ -17,16 +17,19 @@ module ``Base Tests Cases`` =
     | Success( result, _, _) -> Some result
     | _ -> None
   let [<Literal>] s1 = @"some 42"
-  let [<Literal>] s2 = @"dsad++++++++++[>+++++++>++++++++++>+++<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.some       
-  
-  23  "
+  let [<Literal>] s2 
+    = @"dsad++++++++++[>+++++++>++++++++++>+++<<<-]
+       >++.>+.+++++++..+++.>++.<<+++++++++++++++.>
+       .+++.------.--------.>+.some       
+        
+      23  "
   let [<Literal>] s3 = @"sooome 99"
 
   [<TestCase( s1, 42L )>]
   [<TestCase( s2, 23L )>]
-  let ``Parse int in text``
+  let ``Parse int in text: expected some result``
     (text, expected) = get_revision text |> should equal (Some expected)
 
   [<TestCase( s3 )>]
-  let ``Parse int in text: empty result``
+  let ``Parse int in text: expected empty result``
     (text) = get_revision text |> should equal None
