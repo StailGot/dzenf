@@ -3,6 +3,8 @@ open System.Windows.Controls
 open System.Windows
 open UI.Window
 
+open SharpSvn
+
 open MahApps.Metro
 open MahApps.Metro.Controls
 
