@@ -8,10 +8,10 @@ module ``Base Tests Cases`` =
 
   let get_revision text =
     let maxCount = System.Int32.MaxValue
-    let skipManyCharsTillString s = skipCharsTillString s true maxCount
+    let skipToString s = skipCharsTillString s true maxCount
     let revision = pint64
     let keyWord = "some"
-    let parser = skipManyCharsTillString keyWord .>> spaces >>. revision
+    let parser = skipToString keyWord .>> spaces >>. revision
     let result = run parser text 
     match result with
     | Success( result, _, _) -> Some result
@@ -19,10 +19,10 @@ module ``Base Tests Cases`` =
   let [<Literal>] s1 = @"some 42"
   let [<Literal>] s2 
     = @"dsad++++++++++[>+++++++>++++++++++>+++<<<-]
-       >++.>+.+++++++..+++.>++.<<+++++++++++++++.>
-       .+++.------.--------.>+.some       
-        
-      23  "
+       >++.>+.+++++++..+++.>++.<<+++++++++++++++.> 
+       .+++.------.--------.>+.some                
+                                                   
+      23                                          "
   let [<Literal>] s3 = @"sooome 99"
 
   [<TestCase( s1, 42L )>]
