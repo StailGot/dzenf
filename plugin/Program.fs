@@ -22,7 +22,7 @@ type DoItOne() =
 type DoItTwo [<ImportingConstructor>] (logger:ILogger) =
   let _logger = logger
   interface IDo with
-    member this.Do() = printfn "%A" "DoItTwo"; logger.Log "DoItTwo"
+    member this.Do() = printfn "%A" "DoItTwo"; _logger.Log "DoItTwo"
 
 type DoItDo() =
   [<ImportMany(typeof<IDo>)>]
@@ -35,10 +35,11 @@ type App() =
     let catalogs' = new AggregateCatalog()
     
     let src:list<Primitives.ComposablePartCatalog> =
-     System.IO.Directory.CreateDirectory >> ignore <| "./plugins/"
+     let plugins = "./plugins/"
+     System.IO.Directory.CreateDirectory >> ignore <| plugins
      [ new ApplicationCatalog()
        new DirectoryCatalog "."
-       new DirectoryCatalog "./plugins/"]
+       new DirectoryCatalog (plugins)]
     src |> Seq.iter catalogs'.Catalogs.Add
     catalogs'
   let Init () =

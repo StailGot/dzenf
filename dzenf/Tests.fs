@@ -6,7 +6,7 @@ module ``Base Tests Cases`` =
 
   open FParsec
 
-  let get_revision text =
+  let revision text =
     let maxCount = System.Int32.MaxValue
     let skipToString s = skipCharsTillString s true maxCount
     let revision = pint64
@@ -28,8 +28,8 @@ module ``Base Tests Cases`` =
   [<TestCase( s1, 42L )>]
   [<TestCase( s2, 23L )>]
   let ``Parse int in text: expected some result``
-    (text, expected) = get_revision text |> should equal (Some expected)
+    (text, expected) = revision text |> should equal (Some expected)
 
   [<TestCase( s3 )>]
   let ``Parse int in text: expected empty result``
-    (text) = get_revision text |> should equal None
+    (text) = revision text |> should equal None
