@@ -8,7 +8,41 @@ open SharpSvn
 open MahApps.Metro
 open MahApps.Metro.Controls
 
+open System.ComponentModel.Composition.Hosting
+open System.ComponentModel.Composition
+
+open Plug.Interop
+
 type DataItem = { Name:string; Count:int }
+
+type AppHost() =
+  [<ImportMany(typeof<IDo>)>]
+  let doer: System.Collections.Generic.IEnumerable<System.Lazy<IDo>> = null
+
+  let catalogs () =
+    let catalogs' = new AggregateCatalog()
+    
+    let src:list<Primitives.ComposablePartCatalog> =
+     let plugins = "./plugins/"
+     System.IO.Directory.CreateDirectory >> ignore <| plugins
+     [
+       new ApplicationCatalog()
+       new DirectoryCatalog "."
+       new DirectoryCatalog (plugins)]
+    src |> Seq.iter catalogs'.Catalogs.Add
+    catalogs'
+  member this.Init () =
+      let container = new CompositionContainer( catalogs() )
+      container.ComposeParts(this)
+  //do Init()
+  member this.Do () = doer |> Seq.iter ( fun e -> e.Value.Do() )
+
+[<Export(typeof<ILogger>)>]
+type Logger() =
+  interface ILogger with
+    member this.Log e = printfn "Log from main app: %A" e
+
+
 
 [<STAThread>]
 [<EntryPoint>]
@@ -55,4 +89,7 @@ let main argv =
     ignore >> async_add_data |> window.ctrlSettings.Click.Add
     ignore >> async_add_data |> window.ctrlButton.Click.Add
 
+    let host = AppHost()
+    host.Init()
+    host.Do()
     app.Run()
