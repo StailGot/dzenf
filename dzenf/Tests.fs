@@ -5,6 +5,10 @@ module ``Base Tests Cases`` =
   open FsUnit
 
   open FParsec
+  open Settings
+
+
+  let noWhiteSpace ( s : string ) = s.Replace(" ","")
 
   let revision text =
     let maxCount = System.Int32.MaxValue
@@ -33,3 +37,20 @@ module ``Base Tests Cases`` =
   [<TestCase( s3 )>]
   let ``Parse int in text: expected empty result``
     (text) = revision text |> should equal None
+
+  [<TestCase>]
+  let ``Serialize/DeSerialize settings`` () =
+    let settings  = { A="Q"; B="W";C="E" }
+    let serialized = settings.Save()
+    let expected = 
+     """<?xml version="1.0" encoding="utf-16"?>
+        <Root>
+          <Settings A="Q" B="W" C="E" />
+        </Root>"""
+    serialized |> noWhiteSpace |> should equal (expected |> noWhiteSpace)
+    (Settings.Read serialized).Value |> should equal settings 
+
+  [<TestCase>]
+  let ``DeSerialize settings : expected empty`` () =
+    let settings = Settings.Read "sss"
+    settings |> should equal None

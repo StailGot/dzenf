@@ -103,6 +103,7 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Window.fs" />
+    <Compile Include="Settings.fs" />
     <Compile Include="Tests.fs" />
     <Compile Include="Program.fs" />
     <Resource Include="App.config" />
