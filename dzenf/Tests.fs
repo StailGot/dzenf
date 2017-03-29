@@ -1,15 +1,11 @@
 ﻿namespace Tests.Lib.Base
 
+open NUnit.Framework
+open FsUnit
+
 module ``Base Tests Cases`` =
-  open NUnit.Framework
-  open FsUnit
-
   open FParsec
-  open Settings
-
-
-  let noWhiteSpace ( s : string ) = s.Replace(" ","")
-
+  
   let revision text =
     let maxCount = System.Int32.MaxValue
     let skipToString s = skipCharsTillString s true maxCount
@@ -37,6 +33,12 @@ module ``Base Tests Cases`` =
   [<TestCase( s3 )>]
   let ``Parse int in text: expected empty result``
     (text) = revision text |> should equal None
+
+
+module ``Settings`` =
+  open Settings
+  
+  let noWhiteSpace ( s : string ) = s.Replace(" ","")
 
   [<TestCase>]
   let ``Serialize/DeSerialize settings`` () =
