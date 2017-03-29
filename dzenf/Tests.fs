@@ -41,16 +41,16 @@ module ``Base Tests Cases`` =
   [<TestCase>]
   let ``Serialize/DeSerialize settings`` () =
     let settings  = { A="Q"; B="W";C="E" }
-    let serialized = settings.Save()
+    let serialized = save settings
     let expected = 
      """<?xml version="1.0" encoding="utf-16"?>
         <Root>
           <Settings A="Q" B="W" C="E" />
         </Root>"""
     serialized |> noWhiteSpace |> should equal (expected |> noWhiteSpace)
-    (Settings.Read serialized).Value |> should equal settings 
+    (read<Settings> serialized).Value |> should equal settings 
 
   [<TestCase>]
   let ``DeSerialize settings : expected empty`` () =
-    let settings = Settings.Read "sss"
+    let settings = read<Settings> "sss"
     settings |> should equal None
